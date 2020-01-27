@@ -1,0 +1,37 @@
+#include <stdio.h>
+#include <string.h>
+
+/* purpose of this emacs script is similar to the lengthcheck project except
+ * this will check for style validity.  If Herman wants to run a script to 
+ * check my style then so can I, game on.
+ */
+
+int main() {
+  int count = 1;
+  int line = 1;
+  char c;
+  char arr[81];
+  
+  arr[0] = 'g';
+
+  scanf("%c", &c);
+
+  while (!feof(stdin)) {
+    arr[count] = c;
+
+    if (count == 81 && c != '\n')
+      printf("ERROR: Line %d is greater than 80 characters!\n", line);
+    
+    if (c == '\n') {
+      line++;
+      count = 0;
+    }
+      
+    
+    scanf("%c", &c);
+    count++;
+  }
+  printf("%d",arr[0]);
+  
+  return 0;
+}
